@@ -1,41 +1,42 @@
 import React, { useState } from "react";
-import "./TopicSearch.css";
+import "./TopicSearch.css";  
 
-const topicsData = [
-  { id: 1, name: "Operating Systems ", category: "Computer Science" },
-  { id: 2, name: "Polymers", category: "Chemistry" },
-  { id: 3, name: "Probability", category: "Mathematics" },
-  { id: 4, name: "Thermodynamics", category: "Physics" },
-  { id: 5, name: "Genetics", category: "Biology" }
+
+const topics = [
+  { title: "Operating Systems", category: "Computer Science" },
+  { title: "Polymers", category: "Chemistry" },
+  { title: "Probability", category: "Mathematics" },
+  { title: "Thermodynamics", category: "Physics" },
 ];
 
 const TopicSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredTopics = topicsData.filter((topic) =>
-    topic.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredTopics = topics.filter((topic) =>
+    topic.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="container">
-      <h2>Topic Search</h2>
+      <h1>Topic Search</h1>
       <input
         type="text"
+        className="search-input"
         placeholder="Search topics..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
       />
+
       <div className="topic-list">
         {filteredTopics.length > 0 ? (
-          filteredTopics.map((topic) => (
-            <div key={topic.id} className="topic-card">
-              <h3>{topic.name}</h3>
-              <p>{topic.category}</p>
+          filteredTopics.map((topic, index) => (
+            <div key={index} className="topic-card">
+              <strong>{topic.title}</strong>
+              <div>{topic.category}</div>
             </div>
           ))
         ) : (
-          <p className="no-results">No topics found</p>
+          <div className="no-results">No matching topics found.</div>
         )}
       </div>
     </div>
@@ -43,3 +44,4 @@ const TopicSearch = () => {
 };
 
 export default TopicSearch;
+
