@@ -47,7 +47,7 @@ const topicsData = [
 
 ### Step 2: Create Search Input
 
-Add an <input> field in the component. Use useState to track searchTerm.
+Add an input field in the component. Use useState to track searchTerm.
 
 ### Step 3: Implement Filtering Logic
 
