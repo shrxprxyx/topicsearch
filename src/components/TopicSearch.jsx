@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./TopicSearch.css";  
 
-
 const topics = [
   { title: "Operating Systems", category: "Computer Science" },
   { title: "Polymers", category: "Chemistry" },
@@ -28,7 +27,9 @@ const TopicSearch = () => {
       />
 
       <div className="topic-list">
-        {filteredTopics.length > 0 ? (
+        {searchTerm === "" ? (
+          <div className="no-results">Please enter a search term.</div>
+        ) : filteredTopics.length > 0 ? (
           filteredTopics.map((topic, index) => (
             <div key={index} className="topic-card">
               <strong>{topic.title}</strong>
