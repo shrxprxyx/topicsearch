@@ -13,6 +13,22 @@
 
 ---
 
+### Project Structure
+
+topicsearch/              
+|--public/                
+|   |-- index.html       
+|-- src/                   
+|   |-- components/      
+|   |  |-- TopicSearch.jsx
+|   |  |-- TopicSearch.css
+|   |-- App.jsx           
+|   |-- index.css          
+|   |-- index.js          
+|-- .gitignore            
+|-- package.json          
+|-- README.md              
+
 ## Step-by-Step Workflow
 
 ### Step 1: Define the Data
